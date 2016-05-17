@@ -1,0 +1,15 @@
+TODO:
+
+add web component
+  index page
+    embed youtube player
+    load video from array
+    get video end event
+  clear finished video from array
+  load next video
+  save history?
+  admin page
+    edit playlist
+
+work on twitch integration
+
