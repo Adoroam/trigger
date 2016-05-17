@@ -4,40 +4,49 @@ const dcf = require('./lib/dcf.js');
 const AR = require('./lib/AR.js');
 
 
-
 //FUNCTIONS
 function callback(err) {if (err) throw err;};
 function isServer(msg, servername) { if (msg.channel.server && msg.channel.server.name === servername) return true; };
+
 //DISCORD BOT!!!
-const trig = new Discord.Client();
-trig.login("astabile.design+harpbot@gmail.com", "adobot", callback);
-trig.on("ready", function(){ console.log("trig live..."); });//end ready
+const trig = new Discord.Client(); // defines bot
+trig.login("astabile.design+harpbot@gmail.com", "adobot", callback); // logs bot in
+trig.on("ready", function(){ console.log("trig live..."); }); // bot's ready status
 trig.on("message", function(msg) {
 
-  //COMMAND LIST
-  var list = [];
-  AR.main.forEach(function(item) {list.push(item);});
-  if (msg.author.username === "Spazcat" || msg.author.id === '93606599888740352') AR.spaz.forEach(function(item) {list.push(item);});
+  // builds list of commands from external arrays in AR.js
+  var list = []; // blank array
+  AR.main.forEach(function(item) {list.push(item);}); // adds global array items
+  if (msg.author.username === "Spazcat" || msg.author.id === '93606599888740352') AR.spaz.forEach(function(item) {list.push(item);}); // adds spazcat emotes conditionally
 
-  //SWITCH
+  // MESSAGE SWITCH
+  // =================
   switch(msg.content) {
-    case "!help": dcf.reply(trig, msg, dcf.help(list)); break;
-    //LINKS
-    case "!worm": dcf.simple(trig, msg, "http://www.staggeringbeauty.com/"); break;
-    case "!like a bullet train": dcf.simple(trig, msg, "https://www.youtube.com/watch?v=gkime9M4z34"); break;
-    //EMOTES
+    // COMMAND LIST
+    case '!help': dcf.reply(trig, msg, dcf.help(list)); break;
+    // LINKS
+    case '!worm': dcf.simple(trig, msg, 'http://www.staggeringbeauty.com/'); break;
+    case '!like a bullet train': dcf.simple(trig, msg, 'https://www.youtube.com/watch?v=gkime9M4z34'); break;
+    // EMOTES
     case '!sex': dcf.simple(trig, msg, "👉👌"); break;
     case '!whale': dcf.simple(trig, msg, "🐳"); break;
     case '!octopus': dcf.simple(trig, msg, "🐙"); break;
     case '!firetruck': dcf.simple(trig, msg, "🚒"); break;
     case '!zombie': dcf.simple(trig, msg, "(f-_-)f"); break;
-    //IMAGES
+    // IMAGES
     case '!facepalm': dcf.picture(trig, msg, 'facepalm.jpg'); break;
     case '!could you not': dcf.picture(trig, msg, 'could you not.jpg'); break;
     case '!tiny violin': dcf.picture(trig, msg, 'tiny violin.jpg'); break;
     case "!I don't need it": dcf.picture(trig, msg, "I don't need it.jpg"); break;
     case "!got em": dcf.picture(trig, msg, "got 'em.jpg"); break;
-    //SPAZCAT
+    // SOUNDS
+    case '!CENA': dcf.sound(trig, msg, 'CENA'); break;
+    case '!bdt': dcf.sound(trig, msg, 'bdt'); break;
+    case '!party': dcf.sound(trig, msg, 'party'); break;
+    case '!yay': dcf.sound(trig, msg, 'yay'); break;
+    case '!moan': dcf.sound(trig, msg, 'moan'); break;
+    case '!ww': dcf.sound(trig, msg, 'wompwomp'); break;
+    // SPAZCAT
     case '!angry': dcf.spaz(trig, msg, 'angry.png'); break;
     case '!cool': dcf.spaz(trig, msg, 'cool.png'); break;
     case '!cry': dcf.spaz(trig, msg, 'cry.png'); break;
@@ -50,19 +59,12 @@ trig.on("message", function(msg) {
     case '!teeth': dcf.spaz(trig, msg, 'teeth.png'); break;
     case '!tongue': dcf.spaz(trig, msg, 'tongue.png'); break;
     case '!wth': dcf.spaz(trig, msg, 'wth.png'); break;
-    //SOUNDS
-    case '!CENA': dcf.sound(trig, msg, 'CENA'); break;
-    case '!bdt': dcf.sound(trig, msg, 'bdt'); break;
-    case '!party': dcf.sound(trig, msg, 'party'); break;
-    case '!yay': dcf.sound(trig, msg, 'yay'); break;
-    case '!moan': dcf.sound(trig, msg, 'moan'); break;
-    case '!ww': dcf.sound(trig, msg, 'wompwomp'); break;
     default:
-      //USER
+    // USER
       if (msg.content.indexOf('!user ') === 0) dcf.user(trig, msg);
-      //Auto Accept Invites
+    // Auto Accept Invites
       if (msg.content.indexOf("https://discord.gg/") === 0) dcf.autojoin(trig, msg);
-      //GAME
+    // GAME
       if (msg.content.indexOf('!game ') === 0) dcf.game(trig, msg);
   };
 
