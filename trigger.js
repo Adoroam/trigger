@@ -25,21 +25,21 @@ trig.on("message", function(msg) {
     // COMMAND LIST
     case '!help': dcf.reply(trig, msg, dcf.help(list)); break;
     // LINKS
-    case '!worm': dcf.simple(trig, msg, 'http://www.staggeringbeauty.com/'); break;
     case '!like a bullet train': dcf.simple(trig, msg, 'https://www.youtube.com/watch?v=gkime9M4z34'); break;
+    case '!worm': dcf.simple(trig, msg, 'http://www.staggeringbeauty.com/'); break;
     // IMAGES
-    case '!facepalm': dcf.picture(trig, msg, 'facepalm.jpg'); break;
     case '!could you not': dcf.picture(trig, msg, 'could you not.jpg'); break;
-    case '!tiny violin': dcf.picture(trig, msg, 'tiny violin.jpg'); break;
-    case "!I don't need it": dcf.picture(trig, msg, "I don't need it.jpg"); break;
+    case '!facepalm': dcf.picture(trig, msg, 'facepalm.jpg'); break;
     case "!got em": dcf.picture(trig, msg, "got 'em.jpg"); break;
+    case "!I don't need it": dcf.picture(trig, msg, "I don't need it.jpg"); break;
+    case '!tiny violin': dcf.picture(trig, msg, 'tiny violin.jpg'); break;
     // SOUNDS
-    case '!CENA': dcf.sound(trig, msg, 'CENA'); break;
     case '!bdt': dcf.sound(trig, msg, 'bdt'); break;
-    case '!party': dcf.sound(trig, msg, 'party'); break;
-    case '!yay': dcf.sound(trig, msg, 'yay'); break;
+    case '!CENA': dcf.sound(trig, msg, 'CENA'); break;
     case '!moan': dcf.sound(trig, msg, 'moan'); break;
+    case '!party': dcf.sound(trig, msg, 'party'); break;
     case '!ww': dcf.sound(trig, msg, 'wompwomp'); break;
+    case '!yay': dcf.sound(trig, msg, 'yay'); break;
     // SPAZCAT
     case '!angry': dcf.spaz(trig, msg, 'angry.png'); break;
     case '!cool': dcf.spaz(trig, msg, 'cool.png'); break;
