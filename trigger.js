@@ -27,12 +27,6 @@ trig.on("message", function(msg) {
     // LINKS
     case '!worm': dcf.simple(trig, msg, 'http://www.staggeringbeauty.com/'); break;
     case '!like a bullet train': dcf.simple(trig, msg, 'https://www.youtube.com/watch?v=gkime9M4z34'); break;
-    // EMOTES
-    case '!sex': dcf.simple(trig, msg, "👉👌"); break;
-    case '!whale': dcf.simple(trig, msg, "🐳"); break;
-    case '!octopus': dcf.simple(trig, msg, "🐙"); break;
-    case '!firetruck': dcf.simple(trig, msg, "🚒"); break;
-    case '!zombie': dcf.simple(trig, msg, "(f-_-)f"); break;
     // IMAGES
     case '!facepalm': dcf.picture(trig, msg, 'facepalm.jpg'); break;
     case '!could you not': dcf.picture(trig, msg, 'could you not.jpg'); break;
@@ -68,7 +62,7 @@ trig.on("message", function(msg) {
       if (msg.content.indexOf('!game ') === 0) dcf.game(trig, msg);
   };
 
-});//MESSAGES
+}); // end of MESSAGES
 
 /* ----- NEW MEMBER ----- */
 trig.on("serverNewMember", function(servObj, userObj){
